@@ -1,0 +1,7 @@
+.bg-div-zona{
+    background: url('/images//bg-pc.png') center no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+
+}
