@@ -42,7 +42,7 @@ const HomeApp = ({ RutaDisplay }) => {
     return (
         <div className="flex">
             <div
-                className={` ${open ? "w-72" : "w-20 "} bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
+                className={` ${open ? "w-72" : "w-20 "} bg-dark-purple h-screen p-5  pt-8 relative duration-300 z-10`}
             >
                 <img
                     src="/images/assets/control.png"
