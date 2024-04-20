@@ -6,8 +6,8 @@ function Page() {
  
   return (
     <>
-      <HomeApp RutaDisplay={<HistoriaIDEC />} />
       
+      <HistoriaIDEC></HistoriaIDEC>
     </>
   )
 }
