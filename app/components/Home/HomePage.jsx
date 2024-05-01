@@ -1,10 +1,54 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import LogoBg from '../../../public/images/cruzAndLlama.png'
 import BgZona from '../../../public/images/ZonaColorado.png'
 import Image from 'next/image'
+
+import { MdDownloadForOffline } from "react-icons/md";
+import html2canvas from 'html2canvas'
+import { Helmet } from 'react-helmet'
 function HomePage() {
+  const [currentVerseText, setCurrentVerseText] = useState('');
+  const [currentImagePath, setCurrentImagePath] = useState('');
+  useEffect(() => {
+    // Agrega el script al DOM
+    const script = document.createElement('script');
+    script.src = 'https://dailyverses.net/get/verse.js?language=nvi';
+    script.async = true;
+    script.defer = true;
+    document.getElementById('dailyVersesWrapper').appendChild(script);
+    // Obtén las rutas de las imágenes desde tu JSON (suponiendo que es un objeto con una propiedad "imagePaths")
+    const jsonImagePath = "/json/imagespathstoDownload.json"; // Reemplaza con la ruta correcta de tu JSON
+    fetch(jsonImagePath)
+      .then(response => response.json())
+      .then(data => {
+        const imagePaths = data.imagePaths || [];
+        // Cambiar la imagen de fondo de forma aleatoria
+        const randomImagePath = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+        setCurrentImagePath(randomImagePath);
+      })
+      .catch(error => console.error('Error fetching image paths:', error));
+    // Limpia el script al desmontar el componente
+    // return () => {
+    //     document.getElementById('dailyVersesWrapper').removeChild(script);
+    // };
+  }, [])
+  const dailyVersesRef = useRef(null);
+  const captureAndDownloadImage = async () => {
+    const canvas = await html2canvas(dailyVersesRef.current);
+    const imgData = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = imgData;
+    link.download = 'dailyVerses.png';
+    link.click();
+  };
+  const dailyVerseStyle = {
+    backgroundImage: `url(${currentImagePath})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    fontWeight: 700,
+  };
   return (
     <>
       <div className='bg-div-zona'>
@@ -14,12 +58,29 @@ function HomePage() {
             <div className='ml-48 mr-4'>
               <Image priority src={BgZona} alt={''} />
             </div>
-            <div className="mt-48 max-w-screen-md flex justify-center">
-              <p className=' w-4/5 text-center text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur est sequi sit laborum aspernatur aut enim eum sint blanditiis nostrum.</p>
+            <div className="mt-48 max-w-screen-md flex justify-center" >
+              <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 hover:text-sm text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
+                <p className=' w-4/5 text-center text-white' id='dailyVersesWrapper'></p>
+
+              </div>
             </div>
-            <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed'>
-              <span className=''>Priverbios 27 23:12</span>
-            </div>
+            <button style={
+              {
+                background: '#ffffff',
+                color: '#1cb389',
+                border: 'none',
+                borderRadius: '100px',
+                fontSize: '2.3rem',
+                padding: 0,
+                display: 'flex',
+                float: 'right',
+                position: 'relative',
+                zIndex: 22,
+              }
+            } onClick={captureAndDownloadImage}> < MdDownloadForOffline /> </button>
+            <Helmet>
+              <script async defer src="https://dailyverses.net/get/verse.js?language=nvi"></script>
+            </Helmet>
           </div>
 
 

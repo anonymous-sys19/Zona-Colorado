@@ -34,7 +34,7 @@ const HomeApp = ({ RutaDisplay }) => {
         { input: "Input", src: "Search", ruta: "buscar Resultado" },
         { title: "Biblia", src: "Biblia", gap: true, ruta: "Biblia" },
         { title: "Ministerios", src: "Ministerios", ruta: "Ministerios" }, //dropdown: true
-        { title: "Quienes Somos ", src: "User", ruta: "QuienesSomos" },
+        { title: "Quienes Somos ", src: "QuienesSomos", ruta: "QuienesSomos" },
         { title: "Oficina Virtual", src: "OficinaVirtual", ruta: "OficinaVirtual" },
         { title: "Contactar", src: "Contactar", ruta: "Contactar" },
     ];
@@ -46,7 +46,7 @@ const HomeApp = ({ RutaDisplay }) => {
             >
                 <img
                     src="/images/assets/control.png"
-                    className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`}
+                    className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-1 rounded-full  ${!open && "rotate-180"}`}
                     onClick={() => setOpen(!open)}
                 />
                 <div className="flex gap-x-4 items-center">
@@ -66,14 +66,15 @@ const HomeApp = ({ RutaDisplay }) => {
                         >
                             {Menu.input ? (
                                 <>
-                                    <img src={`/images/assets/${Menu.src}.png`} alt="" width={24} />
+                                    <img src={`/images/assets/${Menu.src}.gif`} alt="" width={24} />
                                     <InputComponentSearch placeholder={Menu.src} clasName={`${!open && "hidden"} origin-left duration-200`} />
                                 </>
                             ) : (
                                 <>
                                     <div className="relative flex">
                                         <div className=''>
-                                            <img src={`/images/assets/${Menu.src}.png`} width={24} />
+                                            {/* <video src={`/images/assets/${Menu.src}.gif`} width={24}></video> */}
+                                            <img src={`/images/assets/${Menu.src}.gif` || `/images/assets/${Menu.src}.png`} width={24} />
                                         </div>
                                         <div>
                                             <Link
