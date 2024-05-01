@@ -40,9 +40,9 @@ const HomeApp = ({ RutaDisplay }) => {
     ];
 
     return (
-        <div className="flex">
+        <div className="flex flex-wrap md:flex-wrap  bg-div-zona md:bg-div-zona">
             <div
-                className={` ${open ? "w-72" : "w-20 "} bg-light-white h-screen p-5  pt-8 relative duration-300 z-10`}
+                className={` ${open ? "w-72" : "w-20 "} bg-light-white h-screen p-5  pt-8 relative duration-300 z-10 shadow-custom`}
             >
                 <img
                     src="/images/assets/control.png"
@@ -80,12 +80,12 @@ const HomeApp = ({ RutaDisplay }) => {
                                             <Link
                                                 href={`/pages/${Menu.ruta}`} //Menu.ruta === "Ministerios" ? `/pages/${Menu.ruta}` || "#" :
                                                 className={`${!open && "hidden"} origin-left duration-200 mt-0 mr-0 mb-0 ml-4`}
-                                                // onClick={(e) => {
-                                                //     if (Menu.ruta === "Ministerios") {
-                                                //         e.preventDefault();
-                                                //         setShowMinistries(!showMinistries);
-                                                //     }
-                                                // }}
+                                            // onClick={(e) => {
+                                            //     if (Menu.ruta === "Ministerios") {
+                                            //         e.preventDefault();
+                                            //         setShowMinistries(!showMinistries);
+                                            //     }
+                                            // }}
                                             >
                                                 {Menu.title}
                                             </Link>
@@ -98,8 +98,8 @@ const HomeApp = ({ RutaDisplay }) => {
                     ))}
                 </ul>
             </div>
-            <div className="h-screen flex-1">
-                <article className="text-2xl font-semibold ">{RutaDisplay ? (RutaDisplay) : (<HomePage />)}</article>
+            <div className="h-screen flex-1 bg-div-zona">
+                <article className="text-2xl font-semibold bg-div-zona">{RutaDisplay ? (RutaDisplay) : (<HomePage />)}</article>
             </div>
         </div>
     );

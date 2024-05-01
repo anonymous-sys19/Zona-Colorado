@@ -1,7 +1,22 @@
-.bg-div-zona{
+.bg-div-zona {
     background: url('/images//bg-pc.png') center no-repeat;
     width: 100%;
     height: 100vh;
     background-size: cover;
 
+}
+
+.bg-div-transparenci {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.274);
+}
+
+@media (min-width: 768px) {
+    .md\:bg-div-zona {
+        background: url('/images//bg-pc.png') center no-repeat;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+    }
 }

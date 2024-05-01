@@ -51,7 +51,7 @@ function HomePage() {
   };
   return (
     <>
-      <div className='bg-div-zona'>
+      <div className='bg-div-transparenci'>
 
         <div className="flex justify-between flex-row">
           <div className='block'>
@@ -59,8 +59,8 @@ function HomePage() {
               <Image priority src={BgZona} alt={''} />
             </div>
             <div className="mt-48 max-w-screen-md flex justify-center" >
-              <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 hover:text-sm text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
-                <p className=' w-4/5 text-center text-white' id='dailyVersesWrapper'></p>
+              <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
+                <p className=' w-auto text-center text-white' id='dailyVersesWrapper'></p>
 
               </div>
             </div>
