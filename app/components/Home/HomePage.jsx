@@ -10,18 +10,21 @@ function HomePage() {
       <div className='bg-div-zona'>
 
         <div className="flex justify-between flex-row">
-          <div className='block '>
-            <div className='ml-48'>
+          <div className='block'>
+            <div className='ml-48 mr-4'>
               <Image priority src={BgZona} alt={''} />
             </div>
-            <div className="mt-48 max-w-screen-md">
-              <p className=' text-center text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur est sequi sit laborum aspernatur aut enim eum sint blanditiis nostrum.</p>
+            <div className="mt-48 max-w-screen-md flex justify-center">
+              <p className=' w-4/5 text-center text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur est sequi sit laborum aspernatur aut enim eum sint blanditiis nostrum.</p>
+            </div>
+            <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed'>
+              <span className=''>Priverbios 27 23:12</span>
             </div>
           </div>
 
 
 
-          <div className="absolute right-0">
+          <div className="absolute right-0 ml-5">
             <Image
               priority
               src={LogoBg}

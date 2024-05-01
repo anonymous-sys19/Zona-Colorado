@@ -12,7 +12,7 @@ export const InputComponentSearch = ({ placeholder, clasName }) => {
                     background: "border-box",
                     padding: "0.5rem 1rem",
                     outline: "none",
-                    borderColor: "#4299e1",
+                    border: "2px double #4299e1",
                 }
 
             }

@@ -7,42 +7,42 @@ import { InputComponentSearch } from "./SearchIcon.jsx";
 import HomePage from "./Home/HomePage.jsx";
 import { useState } from 'react';
 
-const Dropdown = ({ options }) => {
-    return (
-        <ul className="relative bg-gray-800 text-white p-2 rounded-md shadow-lg">
-            {options.map((option, index) => (
-                <li key={index}>
-                    <Link href={option.route} className="block py-2 px-4 hover:bg-gray-700">
-                        {option.title}
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    );
-};
+// const Dropdown = ({ options }) => {
+//     return (
+//         <ul className="relative bg-gray-800 text-white p-2 rounded-md shadow-lg">
+//             {options.map((option, index) => (
+//                 <li key={index}>
+//                     <Link href={option.route} className="block py-2 px-4 hover:bg-gray-700">
+//                         {option.title}
+//                     </Link>
+//                 </li>
+//             ))}
+//         </ul>
+//     );
+// };
 
 const HomeApp = ({ RutaDisplay }) => {
     const [open, setOpen] = useState(true);
-    const [showMinistries, setShowMinistries] = useState(false);
+    // const [showMinistries, setShowMinistries] = useState(false);
 
-    const MinistriesOptions = [
-        { title: "Ministerio de Mujeres", route: "/ministerio-mujeres" },
-        { title: "Ministerio de Caballeros", route: "/ministerio-caballeros" },
-    ];
+    // const MinistriesOptions = [
+    //     { title: "Ministerio de Mujeres", route: "/ministerio-mujeres" },
+    //     { title: "Ministerio de Caballeros", route: "/ministerio-caballeros" },
+    // ];
 
     const Menus = [
         { input: "Input", src: "Search", ruta: "buscar Resultado" },
-        { title: "Biblia", src: "Chat", gap: true, ruta: "Biblia" },
-        { title: "Ministerios", src: "User", ruta: "Ministerios", dropdown: true },
-        { title: "Quienes Somos ", src: "Calendar", ruta: "QuienesSomos" },
-        { title: "Oficina Virtual", src: "Folder", ruta: "OficinaVirtual" },
-        { title: "Contactar", src: "Search", ruta: "QuienesSomos" },
+        { title: "Biblia", src: "Biblia", gap: true, ruta: "Biblia" },
+        { title: "Ministerios", src: "Ministerios", ruta: "Ministerios" }, //dropdown: true
+        { title: "Quienes Somos ", src: "User", ruta: "QuienesSomos" },
+        { title: "Oficina Virtual", src: "OficinaVirtual", ruta: "OficinaVirtual" },
+        { title: "Contactar", src: "Contactar", ruta: "Contactar" },
     ];
 
     return (
         <div className="flex">
             <div
-                className={` ${open ? "w-72" : "w-20 "} bg-dark-purple h-screen p-5  pt-8 relative duration-300 z-10`}
+                className={` ${open ? "w-72" : "w-20 "} bg-light-white h-screen p-5  pt-8 relative duration-300 z-10`}
             >
                 <img
                     src="/images/assets/control.png"
@@ -56,39 +56,39 @@ const HomeApp = ({ RutaDisplay }) => {
                         src="/images/1.png"
                         className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
                     />
-                    <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`}>Z Colorado</h1>
+                    <h1 className={`text-blue-950 origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`}>Z Colorado</h1>
                 </div>
                 <ul className="pt-6">
                     {Menus.map((Menu, index) => (
                         <li
                             key={index}
-                            className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"}`}
+                            className={`flex  rounded-md p-2 cursor-pointer text-blue-900 hover:bg-blue-200 hover:text-black text-sm items-center gap-x-4 ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-blue-white"}`}
                         >
                             {Menu.input ? (
                                 <>
-                                    <img src={`/images/assets/${Menu.src}.png`} alt="" />
+                                    <img src={`/images/assets/${Menu.src}.png`} alt="" width={24} />
                                     <InputComponentSearch placeholder={Menu.src} clasName={`${!open && "hidden"} origin-left duration-200`} />
                                 </>
                             ) : (
                                 <>
                                     <div className="relative flex">
                                         <div className=''>
-                                            <img src={`/images/assets/${Menu.src}.png`} />
+                                            <img src={`/images/assets/${Menu.src}.png`} width={24} />
                                         </div>
                                         <div>
                                             <Link
-                                                href={Menu.ruta === "Ministerios" ? "#" : `/pages/${Menu.ruta}`}
+                                                href={`/pages/${Menu.ruta}`} //Menu.ruta === "Ministerios" ? `/pages/${Menu.ruta}` || "#" :
                                                 className={`${!open && "hidden"} origin-left duration-200 mt-0 mr-0 mb-0 ml-4`}
-                                                onClick={(e) => {
-                                                    if (Menu.ruta === "Ministerios") {
-                                                        e.preventDefault();
-                                                        setShowMinistries(!showMinistries);
-                                                    }
-                                                }}
+                                                // onClick={(e) => {
+                                                //     if (Menu.ruta === "Ministerios") {
+                                                //         e.preventDefault();
+                                                //         setShowMinistries(!showMinistries);
+                                                //     }
+                                                // }}
                                             >
                                                 {Menu.title}
                                             </Link>
-                                            {Menu.dropdown && showMinistries && <Dropdown options={MinistriesOptions} />}
+                                            {/* {Menu.dropdown && showMinistries && <Dropdown options={MinistriesOptions} />} */}
                                         </div>
                                     </div>
                                 </>

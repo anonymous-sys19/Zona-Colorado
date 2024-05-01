@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { useState } from "react";
-function HomeMenuLinks({ item1, item2, item3, item4, item5, item6, item7, ref1, ref2, ref3, ref4, ref5, ref6, ref7}) {
+function HomeMenuLinks({
+    item1, item2, item3, item4, item5, item6, item7,
+    ref1, ref2, ref3, ref4, ref5, ref6, ref7
+}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -24,7 +27,7 @@ function HomeMenuLinks({ item1, item2, item3, item4, item5, item6, item7, ref1, 
                             </svg>
                         </button>
                     </div>
-                    <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${menuOpen ? 'block' : 'hidden'}`} id="navbar-sticky">
+                    <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 mt-11 ml-auto ${menuOpen ? 'block' : 'hidden'}`} id="navbar-sticky">
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
                                 <a href={ref1} className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">{item1}</a>
