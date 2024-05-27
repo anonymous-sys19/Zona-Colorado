@@ -13,8 +13,12 @@ module.exports = {
         "light-white": "rgba(255,255,255,0.17)",
         
       },
+
       boxShadow: {
         custom: '0vh 0vh 10px 0px #444549;'
+      },
+      margin: {
+        '8p': '8%', // Añadir esta línea
       },
     },
     // darkMode: "class",

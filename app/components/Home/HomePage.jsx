@@ -56,10 +56,10 @@ function HomePage() {
         <div className="flex justify-between flex-row">
           <div className='block'>
             <div className='ml-48 mr-4'>
-              <Image priority src={BgZona} alt={''} />
+              <Image priority src={BgZona} alt={''} className='' />
             </div>
             <div className="mt-48 max-w-screen-md flex justify-center" >
-              <div className='flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
+              <div className='ml-8p mr-8p flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
                 <p className=' w-auto text-center text-white' id='dailyVersesWrapper'></p>
 
               </div>
