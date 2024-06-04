@@ -4,12 +4,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import LogoBg from '../../../public/images/cruzAndLlama.png'
 import BgZona from '../../../public/images/ZonaColorado.png'
 import Image from 'next/image'
-
 import { MdDownloadForOffline } from "react-icons/md";
 import html2canvas from 'html2canvas'
 import { Helmet } from 'react-helmet'
 function HomePage() {
-  const [currentVerseText, setCurrentVerseText] = useState('');
+  // const [currentVerseText, setCurrentVerseText] = useState('');
   const [currentImagePath, setCurrentImagePath] = useState('');
   useEffect(() => {
     // Agrega el script al DOM
@@ -19,7 +18,7 @@ function HomePage() {
     script.defer = true;
     document.getElementById('dailyVersesWrapper').appendChild(script);
     // Obtén las rutas de las imágenes desde tu JSON (suponiendo que es un objeto con una propiedad "imagePaths")
-    const jsonImagePath = "/json/imagespathstoDownload.json"; // Reemplaza con la ruta correcta de tu JSON
+    const jsonImagePath = "/json/imagespathstoDownload.json"; //""; //  https://random.imagecdn.app/1200/650 Reemplaza con la ruta correcta de tu JSON
     fetch(jsonImagePath)
       .then(response => response.json())
       .then(data => {
@@ -58,14 +57,16 @@ function HomePage() {
             <div className='ml-48 mr-4'>
               <Image priority src={BgZona} alt={''} className='' />
             </div>
-            <div className="mt-48 max-w-screen-md flex justify-center" >
-              <div className='ml-8p mr-8p flex justify-center w-auto text-white font-bold py-2 px-4 rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
-                <p className=' w-auto text-center text-white' id='dailyVersesWrapper'></p>
+            <div className="mt-16 max-w-screen-md flex justify-center" >
+              <div className='ml-8p mr-8p flex h-60 items-center justify-center w-auto text-white font-bold py-2  rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
+                <div className='bgPasage flex h-60 items-end justify-center w-auto text-white font-bold rounded cursor-not-allowed relative text-base'>
+                <p className='w-auto text-center text-white p-4' id='dailyVersesWrapper'></p>
+                </div>
 
               </div>
             </div>
             <button style={
-              {
+              { 
                 background: '#ffffff',
                 color: '#1cb389',
                 border: 'none',

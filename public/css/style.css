@@ -88,17 +88,7 @@ body {
   max-width: -webkit-fill-available;
 }
 
-#upload {
-  padding: 0.5rem 3rem;
-  position: relative;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
+
 
 #visorArchivo {
   display: flex;
@@ -124,18 +114,6 @@ body {
 
 
 
-div.gallery {
-  border: 1px solid #ccc;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
 
 div.desc {
   padding: 15px;
@@ -288,4 +266,12 @@ div.desc {
   background-position: center;
   background-repeat: no-repeat;
   
+  && a{
+    text-decoration: none !important;
+    color: #eee !important;
+   &:hover{
+    color: #1b42ff !important;    
+
+   }
+  }
 }

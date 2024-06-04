@@ -1,5 +1,12 @@
 /* eslint-disable react/jsx-key */
-'use client'
+
+import { useState } from 'react'
+import '/public/css/declafe.css'
+import { useEffect } from 'react'
+
+
+
+import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -7,31 +14,18 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 // import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import { useState } from 'react'
-import { useEffect } from 'react'
-import * as React from 'react';
 
-function ContentDecla() {
-
-
+function DeclaracionDFe() {
     const [data, setData] = useState(null)
     useEffect(() => {
         //:TODO: cARGAMOS EL jSON
-        fetch('/json/DeclaracionDeFe.json')
-            // .then(response => response.json())
-            // .then(jsonData => setData(jsonData))
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
+        fetch('/json/declaracionDeFe.json')
+            .then(response => response.json())
             .then(jsonData => setData(jsonData))
-            .catch(error => console.error('Error fetching the JSON:', error));
     }, [])
-    return (
 
+
+    return (
         <article className="father-decla">
             <div className="container">
                 <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper' }}>
@@ -50,8 +44,8 @@ function ContentDecla() {
 
             <div className="container">
                 {data &&
-                    data.items.map((item, index)  => (
-                        <List key={index} sx={{ width: '100%', maxWidth: 660, bgcolor: 'background.paper' }} className='animate animate__fadeInUp'>
+                    data.items.map(item => (
+                        <List sx={{ width: '100%', maxWidth: 660, bgcolor: 'background.paper' }} className='animate animate__fadeInUp'>
                             <ListItem alignItems="flex-start">
                                 <ListItemAvatar>
                                     {item.id}
@@ -85,7 +79,8 @@ function ContentDecla() {
 
 
         </article>
+
     )
 }
 
-export default ContentDecla;
+export default DeclaracionDFe

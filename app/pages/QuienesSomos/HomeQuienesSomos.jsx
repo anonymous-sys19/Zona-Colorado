@@ -8,7 +8,7 @@ function HistoriaIDEC() {
     <>
 
       <HomeMenuLinks
-        item1={"Home"} ref1={'#'}
+        item1={"Home"} ref1={'/'}
         item2={"Conexion 20/30"} ref2={"QuienesSomos/conexion20-30"}
         item3={"Mision y Vision"} ref3={"#"}
         item4={"Declaracion de fe"} ref4={"QuienesSomos/declaracion-de-fe"}
