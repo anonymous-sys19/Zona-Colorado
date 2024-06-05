@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { MdDownloadForOffline } from "react-icons/md";
 import html2canvas from 'html2canvas'
 import { Helmet } from 'react-helmet'
+import zIndex from '@mui/material/styles/zIndex'
 function HomePage() {
   // const [currentVerseText, setCurrentVerseText] = useState('');
   const [currentImagePath, setCurrentImagePath] = useState('');
@@ -47,6 +48,7 @@ function HomePage() {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     fontWeight: 700,
+    zIndex: 5,
   };
   return (
     <>
@@ -76,7 +78,7 @@ function HomePage() {
                 display: 'flex',
                 float: 'right',
                 position: 'relative',
-                zIndex: 22,
+                zIndex: 9,
               }
             } onClick={captureAndDownloadImage}> < MdDownloadForOffline /> </button>
             <Helmet>
