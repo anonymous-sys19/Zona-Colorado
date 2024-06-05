@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 function HomeMenuLinks({
     item1, item2, item3, item4, item5, item6, item7,
     ref1, ref2, ref3, ref4, ref5, ref6, ref7
@@ -17,7 +18,7 @@ function HomeMenuLinks({
             <nav className="navbg bg-white relative w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="/images/1.png" className="h-8" alt="Flowbite Logo" />
+                        <Image src="/images/1.png" className="h-8" alt="Flowbite Logo" width={0} height={0} priority />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Zona Colorado</span>
                     </a>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">

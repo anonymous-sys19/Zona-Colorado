@@ -55,7 +55,7 @@ function HomePage() {
         <div className="flex justify-between flex-row">
           <div className='block'>
             <div className='ml-48 mr-4'>
-              <Image priority src={BgZona} alt={''} className='' />
+              <Image priority src={BgZona} alt={'Image'} width={0} height={0} className='' />
             </div>
             <div className="mt-16 max-w-screen-md flex justify-center" >
               <div className='ml-8p mr-8p flex h-60 items-center justify-center w-auto text-white font-bold py-2  rounded opacity-90 cursor-not-allowed relative z-10 text-base' ref={dailyVersesRef} style={dailyVerseStyle}>
@@ -89,6 +89,8 @@ function HomePage() {
           <div className="absolute right-0 ml-5">
             <Image
               priority
+              width={0}
+              height={0}
               src={LogoBg}
               alt="Follow us on BG idec"
               className='w-auto'

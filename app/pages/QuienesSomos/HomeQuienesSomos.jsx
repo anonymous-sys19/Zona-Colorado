@@ -2,7 +2,7 @@
 import HomeMenuLinks from "../../components/HomesLinks/HomeMenuLinks";
 function HistoriaIDEC() {
   function HandleClick ()  {
-    alert('{"Mision y Vision} {Principios Doctrinales} {Estructura } Se encuentran en Desarrollo');
+    console.log('{"Mision y Vision} {Principios Doctrinales} {Estructura } Se encuentran en Desarrollo');
   };
 
 
